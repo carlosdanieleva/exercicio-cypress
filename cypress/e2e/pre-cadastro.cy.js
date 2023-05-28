@@ -12,8 +12,7 @@ describe('Pré-cadastro', () => {
     
 
     beforeEach(() => {
-        cy.visit ('http://lojaebac.ebaconline.art.br/')
-        cy.get ('.icon-user-unfollow').click ()
+        cy.visit ('minha-conta')
     
     })
 
