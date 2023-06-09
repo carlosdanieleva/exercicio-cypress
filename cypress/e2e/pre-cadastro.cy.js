@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 import { faker } from '@faker-js/faker';
-
+const dados = require('../fixtures/perfil.json')
 
 describe('Pré-cadastro', () => {
 
@@ -12,7 +12,7 @@ describe('Pré-cadastro', () => {
     
 
     beforeEach(() => {
-        cy.visit ('minha-conta')
+        cy.visit ('minha-conta/')
     
     })
 
@@ -28,5 +28,8 @@ describe('Pré-cadastro', () => {
         cy.get('.woocommerce-Button').click ()
         cy.get('.woocommerce-message').should ('contain', 'modificados com sucesso')
         
+    });
+    it.only ('Deve completar o pré-cadastro com sucesso usando comandos customizados', () => {
+        cy.pre_Cad(email, senha, nomeFaker, sobrenomeFaker)
     });
 });

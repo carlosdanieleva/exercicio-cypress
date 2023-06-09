@@ -1,8 +1,10 @@
 /// <reference types="cypress"/>
 
+
+
 describe ('Funcionalidade página de produtos', () => {
 beforeEach(() => {
-    cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+    cy.visit('/produtos/')
     cy.get(':nth-child(2) > .page-numbers').click ()
 });
     it ('Deve selecionar um produto da lista', () => {
@@ -23,6 +25,14 @@ beforeEach(() => {
         cy.get('.single_add_to_cart_button').click()
         cy.get('.dropdown-toggle > .mini-cart-items').should ('contain', quantidade)
         cy.get('.woocommerce-message').should ('contain', quantidade + ' × “Atomic Endurance Running Tee (Crew-Neck)” foram adicionados no seu carrinho.')
+        
+    });
+  
+    it.only ('Deve adicionar produtos ao carrinho usando comando personalizado', () => {
+        
+cy.addProduto ('Atomic Endurance Running', 'M', 'Black', 5)
+
+
         
     });
 });
